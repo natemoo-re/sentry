@@ -45,7 +45,7 @@ export function AnimatedActivity({
         return;
       }
 
-      controls.start({...animate, transition});
+      void controls.start({...animate, transition});
       return;
     }
 
