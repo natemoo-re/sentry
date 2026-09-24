@@ -273,21 +273,30 @@ function main() {
   }
   const base = values.base ? baseBaseline(values.base) : undefined;
   const baseline = base?.baseline ?? readBaseline(readFileSync(baselinePath, 'utf8'));
-  const violations = excess(findings, baseline);
   const headBaseline = readBaseline(readFileSync(baselinePath, 'utf8'));
+  const current = structuredClone(headBaseline);
+  for (const [from, to] of base?.renames ?? []) {
+    if (!current.files[to] && headBaseline.files[from]) {
+      current.files[to] = headBaseline.files[from];
+    }
+  }
+  const ceiling = structuredClone(baseline);
+  for (const [file, entries] of Object.entries(ceiling.files)) {
+    for (const [rule, entry] of Object.entries(entries)) {
+      const proposed = current.files[file]?.[rule] ?? {count: 0, messages: []};
+      if (proposed.count < entry.count) {
+        entries[rule] = proposed;
+      }
+    }
+  }
+  const violations = excess(findings, ceiling);
   const baselineIncreases = base
     ? increases(headBaseline, base.original).filter(
         group => group.actual > (baseline.files[group.file]?.[group.rule]?.count ?? 0)
       )
     : [];
   if (command === 'generate') {
-    const current = structuredClone(headBaseline);
-    for (const [from, to] of base?.renames ?? []) {
-      if (!current.files[to] && headBaseline.files[from]) {
-        current.files[to] = headBaseline.files[from];
-      }
-    }
-    if (violations.length || increases(actual, current).length) {
+    if (violations.length) {
       throw new Error(
         'Refusing to increase baseline ceilings. Run check for the new violations.'
       );
