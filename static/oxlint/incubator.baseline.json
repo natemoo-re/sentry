@@ -1,17 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-24T19:24:17.965Z",
-  "generatedFrom": "85caa252973811afc7ad8fe2a33f5e9038b6e9d4",
-  "rules": ["eslint/no-void"],
+  "generatedAt": "2026-09-24T19:37:08.393Z",
+  "generatedFrom": "c9c1376b40853b73989549e0698b577c10f332f6",
+  "rules": [
+    "eslint/no-void"
+  ],
   "files": {
     "static/app/components/animatedActivity.tsx": {
       "eslint/no-void": {
-        "count": 2,
+        "count": 1,
         "messages": [
-          {
-            "hash": "12abcc8eb7639e0b",
-            "message": "Unexpected `void` operator"
-          },
           {
             "hash": "12abcc8eb7639e0b",
             "message": "Unexpected `void` operator"
