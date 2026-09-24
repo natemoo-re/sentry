@@ -30,7 +30,9 @@ The schedule runs at 06:00 UTC. Generating a PR does not change the enforced cei
 merging it does. Require branches to be up to date before merging so older green
 checks cannot outlive a baseline change. An updated PR is checked against the current
 base branch and fails if it restores debt already removed there. A baseline PR that
-becomes stale must also update and rerun before merging.
+becomes stale must also update and rerun before merging. CI also checks against any
+lower ceiling proposed in the PR itself, so a stale shrink PR cannot merge a baseline
+that is below the actual source count.
 
 CI reads the baseline from the merge commit's first parent and scans the whole
 `static/` tree, including any `gsApp` and `gsAdmin` directories present in the checkout.
