@@ -1,0 +1,46 @@
+name: Shrink lint incubator baseline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: lint-incubator-baseline
+  cancel-in-progress: false
+
+jobs:
+  shrink:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: ./.github/actions/setup-node-pnpm
+      - name: Lower ceilings
+        run: node scripts/lint-incubator.ts generate --update --base HEAD
+      - name: Propose baseline update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- static/oxlint/incubator.baseline.json; then
+            echo 'No baseline change.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ "$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title chore(lint-incubator)' --json number --jq length)" != 0 ]; then
+            echo 'A baseline PR is already open.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          BRANCH="lint-incubator/shrink-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          git switch -c "$BRANCH"
+          git add static/oxlint/incubator.baseline.json
+          git commit -m 'chore(lint-incubator): Lower violation ceilings'
+          git push origin "$BRANCH"
+          gh pr create --repo "$GITHUB_REPOSITORY" --base "$GITHUB_REF_NAME" --head "$BRANCH" \
+            --title 'chore(lint-incubator): Lower violation ceilings' \
+            --body 'Full-tree regeneration lowered the baseline. No per-file rule ceiling increased. Review and merge to prevent these violations from returning.'

@@ -1,0 +1,56 @@
+name: Lint incubator
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint incubator
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: ./.github/actions/setup-node-pnpm
+      - name: Exercise incubator behavior
+        run: node --test scripts/lint-incubator.test.ts
+      - name: Export current backlog for agents
+        run: node scripts/lint-incubator.ts backlog > incubator-backlog.json
+      - name: Check violation ceilings
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          BASE=HEAD
+          if [ "$EVENT_NAME" = pull_request ]; then
+            BASE=$(git rev-parse HEAD^1)
+          fi
+          node scripts/lint-incubator.ts check --base "$BASE" --json > incubator-check.json
+      - name: Summarize excess violations
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import {existsSync, readFileSync, appendFileSync} from 'node:fs';
+          if (!existsSync('incubator-check.json') || !readFileSync('incubator-check.json', 'utf8').trim()) process.exit(0);
+          const report = JSON.parse(readFileSync('incubator-check.json', 'utf8'));
+          const escape = value => String(value).replaceAll('%', '%25').replaceAll('\r', '%0D').replaceAll('\n', '%0A').replaceAll(',', '%2C').replaceAll(':', '%3A');
+          for (const group of report.violations) {
+            for (const finding of group.diagnostics) {
+              console.log(`::error file=${escape(finding.file)},line=${finding.line},col=${finding.column}::${escape(`${finding.rule}: ${finding.message}. Ceiling ${group.baseline}, actual ${group.actual}. ${finding.url ?? ''}`)}`);
+            }
+          }
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Lint incubator\n\n${report.total} excess violations. ${report.baselineIncreases.length} increased baseline entries.\n\nDownload the JSON artifacts for the report and full agent backlog. Attribution uses message counts; identical messages cannot identify which occurrence was introduced.\n\n\`node scripts/lint-incubator.ts backlog --file PATH\` lists current locations.\n`);
+          NODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: lint-incubator
+          path: |
+            incubator-check.json
+            incubator-backlog.json
+          if-no-files-found: error

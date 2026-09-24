@@ -104,6 +104,14 @@ Use the right AGENTS.md for the area you're working in:
 
 Workflow steering (commit, pre-commit, hybrid cloud, etc.) lives in **skills** (`.agents/skills/`). Attach or read the area `AGENTS.md` when working in that tree. Add or update guidance in the appropriate AGENTS.md or skill—do not duplicate long guidance in editor-specific rule files.
 
+## Lint incubator spike
+
+Run `node scripts/lint-incubator.ts backlog --rule eslint/no-void` for live JSON diagnostics.
+Choose a file with `--file PATH`, fix its violations, and run `pnpm lint:incubator`.
+Use `pnpm gen:incubator-baseline --update` to lower ceilings after cleanup.
+Do not use unrestricted baseline generation to make a failing check pass.
+See `static/oxlint/incubator.md` for the spike's limits and verification commands.
+
 ## Agent Skills
 
 Skills under `.agents/skills/` should follow the same current-practice conventions as the rest of the repo:
