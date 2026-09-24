@@ -6,17 +6,6 @@
     "eslint/no-void"
   ],
   "files": {
-    "static/app/components/animatedActivity.tsx": {
-      "eslint/no-void": {
-        "count": 1,
-        "messages": [
-          {
-            "hash": "12abcc8eb7639e0b",
-            "message": "Unexpected `void` operator"
-          }
-        ]
-      }
-    },
     "static/app/components/clippedBox.tsx": {
       "eslint/no-void": {
         "count": 1,
