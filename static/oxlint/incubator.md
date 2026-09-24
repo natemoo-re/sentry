@@ -21,10 +21,18 @@ The baseline stores message hashes with multiplicity but no source locations.
 
 `generate` enrolls the current full tree. Use it only to onboard a reviewed rule or
 reconcile a move Git cannot detect. `generate --update` first checks all ceilings and
-refuses any increase. Entries that reach zero disappear. The weekly workflow opens a
+refuses any increase. Entries that reach zero disappear. The nightly workflow opens a
 PR with this update. An unchanged scan does not rewrite the file. Humans merge the
 baseline PR. GitHub must permit Actions to create pull requests; PRs created with
 `GITHUB_TOKEN` need a human or another token to trigger subsequent PR workflows.
+
+The schedule runs at 06:00 UTC. Generating a PR does not change the enforced ceiling;
+merging it does. Require branches to be up to date before merging so older green
+checks cannot outlive a baseline change. An updated PR is checked against the current
+base branch and fails if it restores debt already removed there. A baseline PR that
+becomes stale must also update and rerun before merging. CI also checks against any
+lower ceiling proposed in the PR itself, so a stale shrink PR cannot merge a baseline
+that is below the actual source count.
 
 CI reads the baseline from the merge commit's first parent and scans the whole
 `static/` tree, including any `gsApp` and `gsAdmin` directories present in the checkout.
@@ -61,3 +69,24 @@ commands in one script. A separate JSON postprocessor was considered, but would
 repeat scan arguments and exit handling in every caller. One real-oxlint integration
 test exercises existing debt, growth, swaps, renames, cleanup, reinsertion, malformed
 source, malformed baselines, and baseline inflation.
+
+## Fork verification
+
+The spike runs in [natemoo-re/sentry](https://github.com/natemoo-re/sentry). Its `main`
+branch retains only the two incubator workflows and requires the `Lint incubator`
+check, including for administrators. The implementation branch
+`nm/spike/lint-incubator` preserves the upstream workflows.
+
+Observed Actions results on September 24, 2026:
+
+| Scenario                                          | Result                          | Evidence                                                                                                                  |
+| ------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Shift lines in a file with existing debt          | Pass, 101 violations remain     | [PR 1](https://github.com/natemoo-re/sentry/pull/1), [run](https://github.com/natemoo-re/sentry/actions/runs/36049088976) |
+| Add a violation to an existing file               | Fail, one excess; merge blocked | [PR 2](https://github.com/natemoo-re/sentry/pull/2), [run](https://github.com/natemoo-re/sentry/actions/runs/36049089089) |
+| Add a new violating file                          | Fail, one excess                | [PR 3](https://github.com/natemoo-re/sentry/pull/3), [run](https://github.com/natemoo-re/sentry/actions/runs/36049092734) |
+| Rename a file with debt                           | Pass, allowance transferred     | [PR 4](https://github.com/natemoo-re/sentry/pull/4), [run](https://github.com/natemoo-re/sentry/actions/runs/36049099054) |
+| Fix one backlog item                              | Pass, live backlog drops to 100 | [PR 5](https://github.com/natemoo-re/sentry/pull/5), [run](https://github.com/natemoo-re/sentry/actions/runs/36049102137) |
+| Increase a baseline entry without changing source | Fail, one inflated entry        | [PR 6](https://github.com/natemoo-re/sentry/pull/6), [run](https://github.com/natemoo-re/sentry/actions/runs/36049106060) |
+
+Each run's `lint-incubator` artifact contains the machine-readable check report and
+live backlog. The deliberately failing PRs are test specimens, not changes to merge.

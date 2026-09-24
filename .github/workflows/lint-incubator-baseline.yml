@@ -3,7 +3,7 @@ name: Shrink lint incubator baseline
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 12 * * 1'
+    - cron: '0 6 * * *'
 
 permissions:
   contents: write
@@ -30,7 +30,7 @@ jobs:
             echo 'No baseline change.' >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          if [ "$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title chore(lint-incubator)' --json number --jq length)" != 0 ]; then
+          if [ "$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 1000 --json headRefName --jq '[.[] | select(.headRefName | startswith("lint-incubator/shrink-"))] | length')" != 0 ]; then
             echo 'A baseline PR is already open.' >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi

@@ -87,6 +87,7 @@ test('incubator enforces ceilings with real oxlint and git', () => {
     );
     assert.deepEqual(shrunk.files, {});
     writeFileSync(join(cwd, 'static/renamed.ts'), 'void first();\n');
+    cli(['check', '--base', renamedBase], 1);
     cli(['generate', '--update', '--base', renamedBase], 2);
     writeFileSync(join(cwd, 'static/renamed.ts'), 'first();\n');
     const shrunkBase = commit();
