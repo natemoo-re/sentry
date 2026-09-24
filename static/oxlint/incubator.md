@@ -19,8 +19,8 @@ documentation URLs, and help text. Its JSON can be handed to an agent. The PR wo
 also publishes `incubator-backlog.json` and `incubator-check.json` as an Actions artifact.
 The baseline stores message hashes with multiplicity but no source locations.
 
-`generate` enrolls the current full tree. Use it only to onboard a reviewed rule or
-reconcile a move Git cannot detect. `generate --update` first checks all ceilings and
+`generate` snapshots the current full tree for reviewed rule enrollment.
+`generate --update` first checks all ceilings and
 refuses any increase. Entries that reach zero disappear. The nightly workflow opens a
 PR with this update. An unchanged scan does not rewrite the file. Humans merge the
 baseline PR. GitHub must permit Actions to create pull requests; PRs created with
@@ -90,3 +90,52 @@ Observed Actions results on September 24, 2026:
 
 Each run's `lint-incubator` artifact contains the machine-readable check report and
 live backlog. The deliberately failing PRs are test specimens, not changes to merge.
+
+The [shrink workflow](https://github.com/natemoo-re/sentry/actions/runs/36049310060)
+created [PR 7](https://github.com/natemoo-re/sentry/pull/7), which lowered the committed
+baseline from 101 to 100 after the cleanup merged. Its
+[required check passed](https://github.com/natemoo-re/sentry/actions/runs/36049587173)
+before merge. [PR 8](https://github.com/natemoo-re/sentry/pull/8) installed the nightly
+schedule and proposed-ceiling guard. A
+[second shrink run](https://github.com/natemoo-re/sentry/actions/runs/36050308189)
+passed without creating another PR when the baseline was already current.
+
+Two further negative tests passed their expected failure conditions:
+
+- [PR 9](https://github.com/natemoo-re/sentry/pull/9) restores the removed violation.
+  Its [check](https://github.com/natemoo-re/sentry/actions/runs/36050303380) fails with
+  a ceiling of one and an actual count of two.
+- [PR 10](https://github.com/natemoo-re/sentry/pull/10) proposes a zero ceiling while
+  one violation remains. Its
+  [check](https://github.com/natemoo-re/sentry/actions/runs/36050313151) fails, preventing
+  a stale shrink from introducing an inconsistent baseline.
+
+An older passing PR was observed as `BEHIND` after `main` changed. Strict required
+checks prevent that old success from authorizing a merge against a newer baseline.
+
+## File split experiment
+
+The CompactSelect test file contained eight violations. Its five type tests were
+extracted unchanged with the TypeScript AST into two new test files containing four
+violations each. Comparing the complete `void` expression multisets before and after
+confirmed that every violating expression was preserved exactly.
+
+| Edit                                         | Git detection                            | Incubator result                                                                                                                                          |
+| -------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Keep the original file and extract two files | One modification, two additions          | [PR 11](https://github.com/natemoo-re/sentry/pull/11) [fails](https://github.com/natemoo-re/sentry/actions/runs/36050655864) with eight excess violations |
+| Replace the original with three files        | One 92% similarity rename, two additions | [PR 12](https://github.com/natemoo-re/sentry/pull/12) [fails](https://github.com/natemoo-re/sentry/actions/runs/36050662336) with eight excess violations |
+
+Both full-tree backlogs remain at 100. The reports incorrectly classify the moved
+debt as excess because the two new paths have zero allowances. In the rename case,
+Git transfers the original allowance to the remaining behavior tests, which contain
+none of the moved violations.
+
+This is a demonstrated limitation of per-file ceilings. The spike tracks whole-file
+renames, not moved hunks or syntax nodes. Regenerating the baseline alone cannot make
+these PRs pass because CI also rejects increased allowances at new paths.
+
+Before broad rollout, test matching unchanged moved occurrences using source context
+or syntax nodes, consuming each removed occurrence at most once. Raw hunks are fragile
+under formatting and edits. A repository-wide count would permit unrelated cleanup
+to hide new debt elsewhere, so it would weaken the intended enforcement. An explicit,
+reviewed allowance-transfer mechanism is another option when matching is ambiguous.
