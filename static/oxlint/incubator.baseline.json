@@ -1,0 +1,804 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-24T19:24:17.965Z",
+  "generatedFrom": "85caa252973811afc7ad8fe2a33f5e9038b6e9d4",
+  "rules": ["eslint/no-void"],
+  "files": {
+    "static/app/components/animatedActivity.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/clippedBox.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/compactSelect/compactSelect.spec.tsx": {
+      "eslint/no-void": {
+        "count": 8,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/form/autoSaveForm.spec.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/form/autoSaveForm.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/form/field/selectField.spec.tsx": {
+      "eslint/no-void": {
+        "count": 8,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/slot/slot.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/core/toast/toast.spec.tsx": {
+      "eslint/no-void": {
+        "count": 10,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/events/autofix/v3/repositoryWritePermissionButton.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/events/autofix/v3/useResetAutofixStep.spec.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/events/rrwebReplayer/index.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/groupHeaderRow.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/profiling/profilingContextMenu.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/searchQueryBuilder/hooks/useHandleSearch.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/searchSyntax/renderer.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/seer/projectTable/seerProjectTable.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/teamFilter.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/teamSelector.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/components/timeSince.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/stories/view/storyTableOfContents.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/utils/discover/eventView.spec.tsx": {
+      "eslint/no-void": {
+        "count": 5,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/utils/discover/eventView.tsx": {
+      "eslint/no-void": {
+        "count": 3,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/admin/adminRelays.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/authV2/authLogin/components/organizationSlugInput.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/authV2/authLogin/components/webAuthn2faMethod.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/authV2/authLogin/hooks/useSecondFactorAuth.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/explore/metrics/hooks/useSaveMetricsMultiQuery.spec.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/explore/profiling/landingAggregateFlamegraph.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/explore/releases/drawer/useReleasesDrawer.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/explore/tables/spanItemDetails.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/explore/tables/spansTable.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/insights/crons/components/monitorCheckIns.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/insights/pages/transactionNameSearchBar.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/investigations/detail/cell.tsx": {
+      "eslint/no-void": {
+        "count": 3,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/investigations/detail/index.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/investigations/index.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueDetails/activitySection/useMutateActivity.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueDetails/issueDetailsTour.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueDetails/sidebar/seerDrawer.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueDetails/useMarkGroupSeen.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueList/pages/inbox/index.tsx": {
+      "eslint/no-void": {
+        "count": 4,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueList/pages/inbox/issuePreview/issuePreviewActions.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/issueList/pages/useInboxPreviewPrefetch.tsx": {
+      "eslint/no-void": {
+        "count": 4,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/onboarding/scmMessaging.spec.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/performance/traceDetails/trace.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/performance/traceDetails/tracePinnedAttribute.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/performance/traceDetails/traceRow/traceLoadingRow.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/performance/traceDetails/traceRow/traceRootNode.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/performance/traceDetails/traceWaterfall.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/seerWorkflows/overview/overviewIssueAssignee.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/seerWorkflows/overview/overviewIssuePriority.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/settings/account/accountNotificationFineTuning.tsx": {
+      "eslint/no-void": {
+        "count": 2,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          },
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/settings/components/settingsBreadcrumb/breadcrumbDropdown.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/app/views/settings/organizationTeams/organizationTeams.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/gsApp/components/features/illustrations/alertsBackground.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    },
+    "static/gsApp/components/upsellModal/featureList.tsx": {
+      "eslint/no-void": {
+        "count": 1,
+        "messages": [
+          {
+            "hash": "12abcc8eb7639e0b",
+            "message": "Unexpected `void` operator"
+          }
+        ]
+      }
+    }
+  }
+}

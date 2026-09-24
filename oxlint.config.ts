@@ -379,7 +379,12 @@ const config = defineConfig({
       },
       {
         category: 'configs',
-        pattern: ['package.json', 'config/**/*.*', '*.config.{mjs,js,ts}'],
+        pattern: [
+          'package.json',
+          'config/**/*.*',
+          '*.config.{mjs,js,ts}',
+          'oxlint.config.incubator.ts',
+        ],
       },
     ],
     // All descriptors and selectors use the v7 entity/query model.
@@ -741,6 +746,7 @@ const config = defineConfig({
           'analyze-styled\\.ts$',
           'type-coverage\\.ts$',
           'type-coverage-diff\\.ts$',
+          'lint-incubator(?:\\.test)?\\.ts$',
           'AiSetupDataConsent\\.tsx$',
           'CredentialRow\\.tsx$',
           'DevKitSettings\\.tsx$',
@@ -998,6 +1004,10 @@ const config = defineConfig({
           // Story files inherit their containing application's permissions
           // above. Storybook itself can load Storybook files.
           storyFilesPolicy,
+          {
+            from: {file: {path: 'scripts/lint-incubator.ts'}},
+            allow: {to: {file: {path: 'oxlint.config.incubator.ts'}}},
+          },
           // GetSentry fixtures contain GetSentry types and need the same access
           // as tests living under static/gsApp.
           {
